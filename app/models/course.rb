@@ -2,7 +2,7 @@
 
 class Course < ApplicationRecord
   validates :title,
-    precence: true,
+    presence: true,
     length: {
       minimum: 1, maximum: 255
     }
