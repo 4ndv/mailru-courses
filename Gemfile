@@ -41,6 +41,10 @@ group :development, :test do
   gem "rspec-rails", "~> 4.0.1"
 end
 
+group :test do
+  gem "database_cleaner-active_record"
+end
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console", ">= 3.3.0"
