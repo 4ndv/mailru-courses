@@ -1,0 +1,17 @@
+addons:
+  postgresql: 12.1
+
+dist: bionic
+
+language: ruby
+rvm:
+  - 2.6.3
+bundler_args: --without production
+
+before_script:
+  - cp .env.test .env
+  - bundle exec rails db:create
+
+script:
+  - bundle exec rails db:migrate
+  - bundle exec rspec -f doc
