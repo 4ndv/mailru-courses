@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :student do
     name { Faker::Name.name }
-    email { Faker::Internet.unique.email }
+    email { Faker::Internet.unique.email(name: name) }
 
     group
     course { group.course }
