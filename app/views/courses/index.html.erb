@@ -1,0 +1,39 @@
+<h1>All courses</h1>
+
+<% unless @courses.any? %>
+  <p>No current courses at this time</p>
+<% else %>
+  <p>
+    Sort:
+
+    <% if @order == :title %>
+      <span>Title</span>
+    <% else %>
+      <%= link_to "Title", root_path(order_by: "title") %>
+    <% end %>
+
+    <span>/</span>
+
+    <% if @order == :start_at %>
+      <span>Start date</span>
+    <% else %>
+      <%= link_to "Start date", root_path(order_by: "start_at") %>
+    <% end %>
+  </p>
+  <table border="1">
+    <thead>
+      <th>Course</th>
+      <th>Start date</th>
+      <th>Students</th>
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td><%= link_to course.title, course_path(course.id) %></td>
+          <td><%= course.closest_starting_group.start_at %></td>
+          <td><%= course.students_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
