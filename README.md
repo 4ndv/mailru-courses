@@ -1,24 +1,26 @@
-# README
+# Courses
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.com/4ndv/mailru-courses.svg?branch=master)](https://travis-ci.com/4ndv/mailru-courses)
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Required ruby version: 2.6.3
 
-* System dependencies
+Required tools: docker-compose, foreman
 
-* Configuration
+Steps to install locally:
 
-* Database creation
+```bash
+gem install foreman
+bundle install
+docker-compose up
+bin/rails db:create
+bin/rails db:migrate
+bin/rails db:seed
+```
 
-* Database initialization
+## Running tests locally
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+foreman run --env .env.test bundle exec rspec -f doc
+```
