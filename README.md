@@ -27,6 +27,15 @@ foreman start
 
 ## Running tests locally
 
+Setup:
+
+```bash
+foreman run --env .env.test bin/rails db:create
+foreman run --env .env.test bin/rails db:migrate
+```
+
+Run:
+
 ```bash
 foreman run --env .env.test bundle exec rspec -f doc
 ```
