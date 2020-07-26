@@ -14,5 +14,5 @@ class Student < ApplicationRecord
     format: { with: URI::MailTo::EMAIL_REGEXP },
     # Disallow two students with the same email in one group,
     # but allow two students with the same email in one course
-    uniqueness: { scope: [:group_id] }
+    uniqueness: { scope: [:group_id], case_sensitive: false }
 end

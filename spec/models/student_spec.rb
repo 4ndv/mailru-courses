@@ -18,6 +18,6 @@ RSpec.describe Student, type: :model do
     it { should allow_value("also-correct@email").for(:email) }
     it { should_not allow_value("!@#$%^&*(@email").for(:email) }
 
-    it { should validate_uniqueness_of(:email).scoped_to(:group_id) }
+    it { should validate_uniqueness_of(:email).scoped_to(:group_id).case_insensitive }
   end
 end
