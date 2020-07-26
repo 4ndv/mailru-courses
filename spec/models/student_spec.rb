@@ -12,7 +12,7 @@ RSpec.describe Student, type: :model do
 
   describe "email" do
     it { should validate_presence_of(:email) }
-    it { should validate_length_of(:email).is_at_least(1).is_at_most(255) }
+    it { should validate_length_of(:email).is_at_most(255) }
 
     it { should allow_value("test@email.com").for(:email) }
     it { should allow_value("also-correct@email").for(:email) }

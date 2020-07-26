@@ -18,7 +18,9 @@ RSpec.describe Course, type: :model do
 
       subject.reload
 
-      expect(subject.closest_starting_group.start_at).to eq(start_at.min)
+      closest = subject.groups.order(start_at: :asc).first
+
+      expect(subject.closest_starting_group.id).to eq(closest.id)
     end
   end
 end

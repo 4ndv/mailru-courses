@@ -10,8 +10,8 @@ class Student < ApplicationRecord
 
   validates :email,
     presence: true,
-    length: { minimum: 1, maximum: 255 },
-    format: { with: URI::MailTo::EMAIL_REGEXP },
+    length: { maximum: 255 },
+    format: { with: URI::MailTo::EMAIL_REGEXP, allow_blank: true },
     # Disallow two students with the same email in one group,
     # but allow two students with the same email in one course
     uniqueness: { scope: [:group_id], case_sensitive: false }
