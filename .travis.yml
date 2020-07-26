@@ -9,7 +9,6 @@ rvm:
 bundler_args: --without production
 
 script:
-  - cp .env.test .env
   - bundle exec rails db:create
   - bundle exec rails db:migrate
   - bundle exec rspec -f doc
