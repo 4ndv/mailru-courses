@@ -4,10 +4,9 @@ class Course < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :students, dependent: :destroy
 
-  has_one :closest_starting_group,
-    -> { order(start_at: :asc) },
-    class_name: "Group",
-    inverse_of: :course
+  belongs_to :closest_starting_group,
+              class_name: "Group",
+              inverse_of: :course
 
   validates :title,
     presence: true,
