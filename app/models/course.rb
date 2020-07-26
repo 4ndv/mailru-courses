@@ -6,7 +6,8 @@ class Course < ApplicationRecord
 
   belongs_to :closest_starting_group,
               class_name: "Group",
-              inverse_of: :course
+              inverse_of: :course,
+              optional: true
 
   validates :title,
     presence: true,
