@@ -8,6 +8,12 @@ class Group < ApplicationRecord
 
   belongs_to :course
 
+  has_one :course_as_closest,
+          class_name: "Course",
+          foreign_key: :closest_starting_group_id,
+          dependent: :nullify,
+          inverse_of: :closest_starting_group
+
   validates :start_at,
     presence: true
 
