@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :course do
-    title { "Course title" }
+    title { Faker::Job.unique.title }
   end
 end
