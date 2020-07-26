@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def mask_email(email)
-    email.gsub(/.{5}@/, "*****@")
+    email.gsub(/.{1,5}@/, "*****@")
   end
 end
