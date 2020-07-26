@@ -5,6 +5,7 @@
 <% else %>
   <% @groups.each do |group| %>
     <h2><%= group.start_at %> (<%= pluralize(group.students_count, "student") %>)</h2>
+    <p><%= link_to "Join this group", join_group_path(@course.id, group.id) %></p>
     <% if group.students.any? %>
       <table border="1">
         <thead>

@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root to: "courses#index"
 
   get "/courses/:id", to: "courses#show", as: :course
+  get "/courses/:id/groups/:group_id/join", to: "courses#join", as: :join_group
+  post "/courses/:id/groups/:group_id/join", to: "courses#join"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
