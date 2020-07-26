@@ -1,6 +1,9 @@
 addons:
   postgresql: 12.1
 
+services:
+  - postgresql
+
 dist: bionic
 
 language: ruby
