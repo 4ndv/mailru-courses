@@ -16,6 +16,8 @@ RSpec.describe Course, type: :model do
 
       start_at.each { |s| create(:group, course: subject, start_at: s) }
 
+      subject.reload
+
       expect(subject.closest_starting_group.start_at).to eq(start_at.min)
     end
   end
