@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class Group < ApplicationRecord
-  has_many :students, dependent: :destroy
+  has_many :students,
+            -> { order(name: :asc) },
+            dependent: :destroy,
+            inverse_of: :group
 
   belongs_to :course
 

@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class Course < ApplicationRecord
-  has_many :groups, dependent: :destroy
+  has_many :groups,
+            -> { order(start_at: :asc) },
+            dependent: :destroy,
+            inverse_of: :course
+
   has_many :students, dependent: :destroy
 
   belongs_to :closest_starting_group,

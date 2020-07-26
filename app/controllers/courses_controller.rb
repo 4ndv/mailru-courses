@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show]
+
   # GET /
   def index
     @courses = Course
@@ -18,4 +20,14 @@ class CoursesController < ApplicationController
       @courses = @courses.order(title: :asc)
     end
   end
+
+  # GET /courses/:id
+  def show
+    @groups = @course.groups.includes(:students)
+  end
+
+  private
+    def set_course
+      @course = Course.find(params[:id])
+    end
 end
