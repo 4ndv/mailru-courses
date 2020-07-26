@@ -3,6 +3,19 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
 
+  # Allow to save user without password and confirmation
+  controller do
+    def update
+      model = :user
+
+      if params[model][:password].blank?
+        %w(password password_confirmation).each { |p| params[model].delete(p) }
+      end
+
+      super
+    end
+  end
+
   index do
     selectable_column
     id_column
