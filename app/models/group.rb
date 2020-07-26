@@ -19,6 +19,11 @@ class Group < ApplicationRecord
 
   after_commit :update_closest_starting_group, on: [:create, :update]
 
+  # Display name for ActiveAdmin
+  def display_name
+    start_at
+  end
+
   private
 
     def update_closest_starting_group
