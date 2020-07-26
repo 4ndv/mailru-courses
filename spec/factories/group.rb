@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :group do
-    start_at { 2.days.ago }
+    start_at { rand(1..100).days.after }
 
     course
   end

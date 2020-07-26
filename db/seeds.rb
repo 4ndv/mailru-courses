@@ -10,3 +10,13 @@
 
 # Create AdminUser, in any environment, because of the nature of the task
 AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
+
+courses = create_list(:course, 10)
+
+courses.each do |course|
+  groups = create_list(:group, rand(1..5))
+
+  groups.each do |group|
+    create_list(:student, rand(0..10))
+  end
+end
