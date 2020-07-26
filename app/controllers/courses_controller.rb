@@ -5,6 +5,8 @@ class CoursesController < ApplicationController
 
   # GET /
   def index
+    @page_title = ["All courses"]
+
     @courses = Course
                 .all
                 .includes(:closest_starting_group)
@@ -23,6 +25,8 @@ class CoursesController < ApplicationController
 
   # GET /courses/:id
   def show
+    @page_title = [@course.title, "Groups"]
+
     @groups = @course.groups.includes(:students)
   end
 
