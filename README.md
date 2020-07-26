@@ -19,6 +19,12 @@ bin/rails db:migrate
 bin/rails db:seed
 ```
 
+Start app:
+
+```bash
+foreman start
+```
+
 ## Running tests locally
 
 ```bash
